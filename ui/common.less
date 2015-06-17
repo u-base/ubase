@@ -23,6 +23,14 @@ input[type="button"],button{
 	cursor: pointer;
 }
 
+// 透明度相关
+.opacity(@opacity) {
+	opacity: @opacity;
+	// IE8 filter
+	@opacity-ie: (@opacity * 100);
+	filter: ~"alpha(opacity=@{opacity-ie})";
+}
+
 // 浮动相关
 .fl{
 	float: left;

@@ -1,0 +1,258 @@
+@charset "UTF-8";
+
+/* typo.css v1.1.0 */
+
+// * 模块描述：网页排版样式
+// * 模块兼容：Google Chrome（latest）、Mozilla Firefox（latest）、Internet Explorer（6+）
+// * 模块作者：@yinchuanwu
+// * 更新时间：2015-05-25
+
+
+@font-family-base:        'Microsoft Yahei', 'Hiragino Sans GB', Tahoma, '\5b8b\4f53', Arial, sans-serif;
+//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
+@font-family-monospace:   Consolas, monospace;
+
+@font-size-base:          14px;
+@font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
+@font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
+
+@font-size-h1:            floor((@font-size-base * 2.6)); // ~36px
+@font-size-h2:            floor((@font-size-base * 2.15)); // ~30px
+@font-size-h3:            ceil((@font-size-base * 1.7)); // ~24px
+@font-size-h4:            ceil((@font-size-base * 1.25)); // ~18px
+@font-size-h5:            @font-size-base;
+@font-size-h6:            ceil((@font-size-base * 0.85)); // ~12px
+
+@line-height-base:        20/14; // 1.428571429
+@line-height-computed:    floor((@font-size-base * @line-height-base)); // ~20px
+
+
+body,
+input, textarea, button, select {
+  // 微软雅黑（Windows 7 中文系统默认字体），
+  // 苹果丽黑（Mac OS X 系统自带精美中文字体），
+  // Tahoma（Windows XP 英文版系统默认字体），
+  // 宋体（\5b8b\4f53，Windows XP 中文版系统默认字体），
+  // Arial（无衬线体），
+  // sans-serif（无衬线体）
+  font-family: @font-family-base;
+
+  // 结果 = 目标 / 上下文
+  font-size: @font-size-base;
+  //font-size: 75%;  // 12px/16px = 0.75*100% = 75%
+  //font-size: 87.5%;  // 14px/16px = 0.875*100% = 87.5%
+  //font-size: 100%;  // 16px/16px = 1*100% = 100%
+  //font-size: 125%;  // 20px/16px = 1.25*100% = 125%
+  //font-size: 150%;  // 24px/16px = 1.5*100% = 150%
+  //font-size: 175%;  // 28px/16px = 1.75*100% = 175%
+  //font-size: 200%;  // 32px/16px = 2*100% = 200%
+
+  // 相对于字体大小设置行高 -> http://www.typogui.de/#fontsizelineheight
+  line-height: @line-height-base;
+}
+
+// 强调
+// --------------------
+s,
+del {
+  text-decoration: line-through;
+}
+
+u,
+ins {
+  text-decoration: underline;
+}
+
+strong {
+  font-weight: bold;
+}
+em {
+  font-style: italic;
+}
+
+small {
+  font-size: floor((100% * @font-size-small / @font-size-base));
+}
+
+// 地址
+address {
+  font-style: normal;
+}
+
+// 引用
+blockquote {}
+cite {
+  font-style: normal;
+}
+q {}
+
+// 代码
+pre,
+code,
+kbd,
+samp,
+var {
+  font-family: @font-family-monospace;
+  font-size: @font-size-base;
+}
+
+// 标记
+mark {}
+
+// 分隔符
+hr {
+  border-bottom: 1px solid #cfcfcf;
+}
+
+// 缩略
+abbr {
+  &[title] {
+    cursor: help;
+    border-bottom: 1px dotted;
+  }
+}
+
+// 上标&下标
+sup,
+sub {
+  position: relative;
+  font-size: 75%;
+
+  vertical-align: baseline;
+  line-height: 0;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+
+.typo {
+
+  h1, h2, h3, h4, h5, h6,
+  p,
+  &-ul, ul,
+  &-ol, ol,
+  &-dl, dl,
+  pre,
+  &-table, table
+  {
+    margin-bottom: @line-height-computed;
+  }
+
+  // 标题
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+  }
+
+  h2, h3, h4 {
+    line-height: @line-height-computed * 2;
+  }
+
+  h5, h6 {
+    line-height: @line-height-computed * 1;
+  }
+
+  h1 {
+    font-size: @font-size-h1;
+    line-height: @line-height-computed * 3;
+  }
+  h2 {
+    font-size: @font-size-h2;
+  }
+  h3 {
+    font-size: @font-size-h3;
+  }
+  h4 {
+    font-size: @font-size-h4;
+  }
+  h5 {
+    font-size: @font-size-h5;
+  }
+  h6 {
+    font-size: @font-size-h6;
+  }
+
+  // 段落
+  p {}
+
+  // 列表
+  &-ul, ul,
+  &-ol, ol {
+
+    ul, ol {
+      margin-left: 2em;
+      margin-bottom: 0;
+    }
+    ul {
+      list-style: circle;
+    }
+
+  }
+
+  &-ul, ul {
+    list-style: disc;
+    margin-left: 2em;
+  }
+
+  &-ol, ol {
+    list-style: decimal;
+    margin-left: 2em;
+  }
+
+  &-dl, dl {}
+  dt {
+    font-weight: bold;
+  }
+  dd {}
+
+  // 表格
+  &-table, table {
+    width: 100%;
+    background-color: #fff;
+
+    caption,
+    th,
+    td {
+      color: #666;
+      border: 1px solid #ddd;
+      padding: 0.5em 1em;
+    }
+
+    caption {
+      border-bottom: none;
+    }
+    th {
+      background-color: #f1f1f1;
+    }
+    td {}
+
+  }
+
+}
+
+
+// =================================
+// 参考链接
+// =================================
+//
+// ① 了解常用的、与网页排版相关的HTML标签
+// http://getbootstrap.com/css/#type & http://v3.bootcss.com/css/#type
+// https://github.com/sofish/typo.css/
+// http://css.hanzi.co/manual/yangshi_biaozhunhua
+//
+// ② 了解当下流行的Typo样式文件及工具
+// https://github.com/twbs/bootstrap/blob/master/less/type.less
+// https://github.com/sofish/typo.css/
+// https://github.com/csswizardry/typecsset/
+// https://github.com/ethantw/Han/
+// https://github.com/lepture/yue.css/
+// https://github.com/zmmbreeze/Entry.css/
+// http://www.typogui.de/
+//
+// ③ 定制Typo文件
+// 1、自定义全局字体（font-family）
+// 2、自定义全局字号（font-size）
+// 3、自定义全局行高（line-height）
+// 4、自定义垂直栅格（margin、padding、line-height）

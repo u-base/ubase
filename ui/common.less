@@ -1,0 +1,144 @@
+/* 新增RESET */
+a,input,button{
+	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+	-webkit-user-select: none;
+	-moz-user-focus: none;
+	-moz-user-select: none;
+}
+
+img{
+	max-width: 100%;
+	*width: auto; // 针对IE7
+	_width: auto; // 针对IE6
+}
+
+input,button,textarea{
+	-webkit-appearance: none;
+	outline: none;
+}
+
+input[type="button"],button{
+	background: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+// 浮动相关
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.clearfix{
+	*zoom: 1;
+
+	&:before,&:after{
+		content: " ";
+		display: table
+	}
+
+	&:after{
+		clear: both;
+	}
+}
+
+// 按钮、图标
+.ui-btn,.ui-icon{
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	display: inline-block;
+	*display: inline; // 针对IE7处理
+}
+
+// 文本溢出处理
+.txt-overflow {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+// 尺寸相关
+.ui-row(@width:1000px){
+	.clearfix();
+	width: @width;
+	margin: 0 auto;
+}
+
+// 背景、边框、块级、内间距等通用基类
+.ui-bg(@string:#fff){
+	background: @string;
+}
+.ui-bdr(@string:1px solid #EBEBEB){
+	border: @string;
+}
+.ui-radius(@string: 6px){
+	border-radius: @string;
+}
+.ui-pd(@string:15px 10px){
+	padding: @string;
+}
+.ui-block{
+	overflow: hidden;
+}
+
+// 提示警告
+.ui-info,.ui-error,.ui-warning,.ui-success{
+	color: #fff;
+	padding: 7px 15px;
+	display: inline-block;
+	*display: inline;
+	transition: all .25s ease-in-out;
+}
+.ui-info{
+	background: #5BC0DE;
+	border: 1px solid darken(#5BC0DE,10%);
+
+	&:hover{
+		background: darken(#5BC0DE,10%)
+	}
+}
+.ui-error{
+	background: #D9534F;
+	border: 1px solid darken(#D9534F,10%);
+
+	&:hover{
+		background: darken(#D9534F,10%)
+	}
+}
+.ui-warning{
+	background: #F0AD4E;
+	border: 1px solid darken(#F0AD4E,10%);
+
+	&:hover{
+		background: darken(#F0AD4E,10%)
+	}
+}
+.ui-success{
+	background: #5CB85C;
+	border: 1px solid darken(#5CB85C,10%);
+
+	&:hover{
+		background: darken(#5CB85C,10%)
+	}
+}
+
+// 调用示例：
+// <span class="ui-info">一般提示信息</span>
+// <span class="ui-error">错误提示</span>
+// <span class="ui-warning">警告提示</span>
+// <span class="ui-success">成功提示</span>
+
+// input文本框状态
+.ui-ipt-info{
+	border-color: #5BC0DE;
+}
+.ui-ipt-error{
+	border-color: #D9534F;
+}
+.ui-ipt-warning{
+	border-color: #F0AD4E;
+}
+.ui-ipt-success{
+	border-color: #5CB85C;
+}

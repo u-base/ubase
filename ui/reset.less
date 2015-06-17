@@ -1,0 +1,213 @@
+@charset "UTF-8";
+
+/* reset.css v1.1.0 */
+// * 模块描述：浏览器用户代理样式表（User Agent Style Sheets）重置样式
+// * 模块兼容：Google Chrome[Webkit]（latest）、Mozilla Firefox（latest）、Opera（latest）、Internet Explorer（6+）
+// * 模块作者：@yinchuanwu
+// * 更新时间：2015-05-25
+
+body,
+h1, h2, h3, h4, h5, h6,
+p,
+ul, ol, dl, dd,
+menu,
+form, fieldset,
+blockquote,
+pre,
+hr,
+	//dir,  // Mozilla Firefox
+	//keygen, // Google Chrome（Webkit）
+input, textarea, button, select
+{
+	margin: 0;
+}
+
+ul, ol,
+menu,
+fieldset, legend, input, textarea, button,
+caption, th, td,
+blockquote, // Mozilla Firefox
+dir,
+address // Opera
+{
+	padding: 0;
+}
+
+fieldset, // IE6~IE7 下无法重置
+  //input, textarea, button, select,
+iframe, // IE6~IE8下，需要设置内联样式 frameborder="0" 才能清除 2px 的边框
+img,  // 清除 IE 下 a 标签内 img 标签的边框
+hr
+  //keygen // Google Chrome（Webkit）
+{
+	border: none;
+}
+
+html {
+	// 移除IE6-IE7下垂直滚动条样式
+	overflow: auto;
+
+	// CSS继承
+	font-family: sans-serif;
+	font-size: 100%;
+}
+
+a {
+	// 默认移除超链接下划线样式
+	text-decoration: none;
+
+	// 移除IE10连接active状态下的灰色背景色
+	background-color: transparent;
+
+	&:link {}
+	&:visited {}
+	&:hover {}
+	&:active {}
+}
+
+menu,
+ul,
+ol {
+	list-style: none;
+}
+
+pre,
+code,
+kbd,
+samp,
+var {
+	font-family: monospace;
+	font-size: 1em;
+}
+pre {
+	overflow: auto;
+}
+
+input,
+textarea,
+button,
+select,
+optgroup,
+option {
+	font-family: sans-serif;
+	font-size: 1em;
+}
+
+input,
+button,
+select {
+	overflow: visible;
+	*zoom: 1;
+}
+
+textarea {
+	// 移除IE6-IE9下垂直滚动条样式
+	overflow: auto;
+
+	// 修复 textarea resize 破坏布局
+	resize: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+// =================================
+// HTML5 新增标签
+// =================================
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+	display: block;
+}
+
+audio,
+canvas,
+progress,
+video {
+	display: inline-block;
+	vertical-align: baseline;
+}
+
+[hidden],
+template {
+	display: none;
+}
+
+// =================================
+// 对移动Web特性提供重置样式支持
+// =================================
+html {
+	text-size-adjust: 100%;
+
+	// 如果项目支持 Chrome | Firefox | IE9+ 等，推荐在 <html> 中添加 .borderbox class
+	&.borderbox {
+		*,
+		* {
+			&:before,
+			&:after {
+				box-sizing: border-box;
+			}
+		}
+	}
+}
+
+input,
+textarea {
+	// 去除 Webkit 中 input 和 textarea 的默认样式
+	appearance: none;
+	border-radius: 0;
+}
+
+audio {
+	&:not([controls]) {
+		display: none;
+		height: 0;
+	}
+}
+
+svg {
+	&:not(:root) {
+		overflow: hidden;
+	}
+}
+
+
+// =================================
+// 参考链接
+// =================================
+//
+// ① 了解常用的HTML标签
+// http://getbootstrap.com/css/
+// http://html5doctor.com/element-index/
+//
+// ② 了解常用HTML标签的浏览器用户代理样式
+// http://www.iecss.com/
+// http://css-class.com/test/css/defaults/UA-style-sheet-defaults.htm
+//
+// ③ 了解当下流行的Reset样式文件
+// http://cssreset.com/
+// http://meyerweb.com/eric/tools/css/reset/
+// http://html5doctor.com/html-5-reset-stylesheet/
+// http://necolas.github.io/normalize.css/
+//
+// ④ 定制Reset文件
+// 1、重置标签外边距值（margin）
+// 2、重置标签内边距值（padding）
+// 3、重置标签边框值（border）
+// 4、重置列表样式（list-style）
+// 5、重置表格单元格间距样式（border-spacing）
+// 6、重置元素溢出值（overflow）
+// 7、重置HTML5新增标签显示样式（display）
+// 8、对移动Web特性提供重置样式支持

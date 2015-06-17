@@ -1,0 +1,82 @@
+// * Author: Andy
+// * Date  : 2015-06-07 19:00
+// * Url   : http://www.visds.com/
+// * Compatible: Chrome Safri Firefox IE9+
+
+// 调用动画示例DEMO
+// .demo{
+// 	background: #f60;
+// 	width: 500px;
+// 	height: 500px;
+// 	.animation(myKeyframes,1s,ease-in-out,0s,infinite,normal);
+// }
+// 调用动画Keyframes示例DEMO
+// .keyframes(myKeyframes,{
+// 	0%{
+// 		transform: rotate(0);
+// 		opacity: 0;
+// 	}
+// 	100%{
+// 		transform: rotate(360deg);
+// 		opacity: 1;
+// 	}
+// });
+
+
+// ====  已封装方法  ====//
+// Media Query(媒体查询)
+// @width   Media设备最小宽度
+// @rules   Media规则
+.media (@width,@rules) {
+	@media screen and (min-width: @width) {
+		@rules();
+	}
+}
+
+
+// ====  已封装方法  ====//
+
+// 动画方法
+// @animation-name              动画方法名
+// @animation-duration          动画执行时间
+// @animation-timing-function   动画运行方式
+// @animation-delay             动画延迟执行时间
+// @animation-iteration-count   动画执行次数
+// @animation-direction         动画是否轮流反向播放
+.animation(@animation-name,@animation-duration,@animation-timing-function,@animation-delay,@animation-iteration-count,@animation-direction){
+	// Safari 和 Chrome
+	-webkit-animation: @arguments;
+	// Firefox
+	-moz-animation: @arguments;
+	// Opera
+	-o-animation: @arguments;
+	// IE
+	-ms-animation: @arguments;
+	// Standard
+	animation: @arguments;
+}
+// 动画调用demo
+// .class{
+//		.animation(customNames,1s,linear,.2s,infinite,normal);
+// }
+
+// Keyframes
+// @name   Keyframes方法名
+// @rules  Keyframes规则
+.keyframes (@name,@rules) {
+	@-webkit-keyframes ~'@{name}' {
+		@rules();
+	}
+	@-moz-keyframes ~'@{name}' {
+		@rules();
+	}
+	@-o-keyframes ~'@{name}' {
+		@rules();
+	}
+	@-ms-keyframes ~'@{name}' {
+		@rules();
+	}
+	@keyframes ~'@{name}' {
+		@rules();
+	}
+}

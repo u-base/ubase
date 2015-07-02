@@ -27,8 +27,18 @@
 // Media Query(媒体查询)
 // @width   Media设备最小宽度
 // @rules   Media规则
-.media (@width,@rules) {
-	@media screen and (min-width: @width) {
+.media (@min, @rules) {
+	@media screen and (min-width: @min) {
+		@rules();
+	}
+}
+.mediaMax (@max, @rules) {
+	@media screen and (max-width: @max) {
+		@rules();
+	}
+}
+.mediaMinMax (@min, @max, @rules) {
+	@media screen and (min-width: @min) and (max-width: @max) {
 		@rules();
 	}
 }

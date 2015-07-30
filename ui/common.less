@@ -1,5 +1,5 @@
 /* 新增RESET */
-a,input,button{
+a,button{
 	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 	-webkit-user-select: none;
 	-moz-user-focus: none;
@@ -13,7 +13,6 @@ img{
 }
 
 input,button,textarea{
-	-webkit-appearance: none;
 	outline: none;
 }
 
@@ -52,11 +51,12 @@ input[type="button"],button{
 }
 
 // 按钮、图标
-.ui-btn,.ui-icon{
+.btn,.icon{
 	background-repeat: no-repeat;
 	background-position: 0 0;
 	display: inline-block;
 	*display: inline; // 针对IE7处理
+	*zoom: 1;
 }
 
 // 文本溢出处理
@@ -64,6 +64,15 @@ input[type="button"],button{
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
+}
+
+// 显示位置处理
+.ui-center{
+	text-align: center;
+}
+
+.ui-right{
+	text-align: right;
 }
 
 // 尺寸相关
@@ -86,17 +95,15 @@ input[type="button"],button{
 .ui-pd(@string:15px 10px){
 	padding: @string;
 }
-.ui-block{
-	overflow: hidden;
-}
 
 // 提示警告
 .ui-info,.ui-error,.ui-warning,.ui-success{
 	color: #fff;
 	padding: 7px 15px;
 	display: inline-block;
-	*display: inline;
 	transition: all .25s ease-in-out;
+	*display: inline;
+	*zoom: 1;
 }
 .ui-info{
 	background: #5BC0DE;
@@ -138,15 +145,15 @@ input[type="button"],button{
 // <span class="ui-success">成功提示</span>
 
 // input文本框状态
-.ui-ipt-info{
+.ipt-info{
 	border-color: #5BC0DE;
 }
-.ui-ipt-error{
+.ipt-error{
 	border-color: #D9534F;
 }
-.ui-ipt-warning{
+.ipt-warning{
 	border-color: #F0AD4E;
 }
-.ui-ipt-success{
+.ipt-success{
 	border-color: #5CB85C;
 }

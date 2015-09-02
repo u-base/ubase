@@ -17,8 +17,6 @@ input,button,textarea{
 }
 
 input[type="button"],button{
-	background: transparent;
-	border: none;
 	cursor: pointer;
 }
 
@@ -28,6 +26,23 @@ input[type="button"],button{
 	// IE8 filter
 	@opacity-ie: (@opacity * 100);
 	filter: ~"alpha(opacity=@{opacity-ie})";
+}
+
+// 字体转换
+.fsize(@string: 16){
+	font-size: @string/16rem;
+}
+
+// 动画过渡
+.transition(@type: all,@time: .25s,@way: ease-in-out){
+	transition: @arguments;
+}
+
+// 块级兼容
+.inline-block{
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
 }
 
 // 浮动相关
@@ -52,11 +67,9 @@ input[type="button"],button{
 
 // 按钮、图标
 .btn,.icon{
+	.inline-block();
 	background-repeat: no-repeat;
 	background-position: 0 0;
-	display: inline-block;
-	*display: inline; // 针对IE7处理
-	*zoom: 1;
 }
 
 // 文本溢出处理
@@ -95,15 +108,17 @@ input[type="button"],button{
 .ui-pd(@string:15px 10px){
 	padding: @string;
 }
+.ui-block{
+	overflow: hidden;
+}
 
 // 提示警告
 .ui-info,.ui-error,.ui-warning,.ui-success{
 	color: #fff;
 	padding: 7px 15px;
 	display: inline-block;
-	transition: all .25s ease-in-out;
 	*display: inline;
-	*zoom: 1;
+	transition: all .25s ease-in-out;
 }
 .ui-info{
 	background: #5BC0DE;
@@ -145,15 +160,15 @@ input[type="button"],button{
 // <span class="ui-success">成功提示</span>
 
 // input文本框状态
-.ipt-info{
-	border-color: #5BC0DE;
+.ui-ipt-info{
+	border-color: #5BC0DE !important;
 }
-.ipt-error{
-	border-color: #D9534F;
+.ui-ipt-error{
+	border-color: #D9534F !important;
 }
-.ipt-warning{
-	border-color: #F0AD4E;
+.ui-ipt-warning{
+	border-color: #F0AD4E !important;
 }
-.ipt-success{
-	border-color: #5CB85C;
+.ui-ipt-success{
+	border-color: #5CB85C !important;
 }
